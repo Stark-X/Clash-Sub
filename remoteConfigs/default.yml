@@ -1,0 +1,38 @@
+#设置规则标志位
+surge_ruleset:
+  - REJECT,rules/DivineEngine/Surge/Ruleset/Guard/Hijacking.list
+  - DIRECT,https://subconverter.oss-ap-southeast-1.aliyuncs.com/Rules/RuleSet/ForceDirect.list
+  - Proxies,https://subconverter.oss-ap-southeast-1.aliyuncs.com/Rules/RuleSet/ForceProxy.list
+  - Apple,rules/DivineEngine/Surge/Ruleset/Extra/Apple/Apple.list
+  - MicroSoft,https://subconverter.oss-ap-southeast-1.aliyuncs.com/Rules/RuleSet/microsoft.list
+  - Netease,https://subconverter.oss-ap-southeast-1.aliyuncs.com/Rules/RuleSet/Media/netease.list
+  - Telegram,rules/DivineEngine/Surge/Ruleset/Extra/Telegram/Telegram.list
+  - Netflix,https://subconverter.oss-ap-southeast-1.aliyuncs.com/Rules/RuleSet/Media/netflix.list
+  - HKMTMedia,https://subconverter.oss-ap-southeast-1.aliyuncs.com/Rules/RuleSet/Media/HKMTMedia.list
+  - Proxies,rules/DivineEngine/Surge/Ruleset/StreamingMedia/Streaming.list
+  - Proxies,rules/DivineEngine/Surge/Ruleset/Global.list
+  - DIRECT,rules/LocalAreaNetwork.list
+  - DIRECT,rules/DivineEngine/Surge/Ruleset/Unbreak.list
+  - DIRECT,rules/DivineEngine/Surge/Ruleset/China.list
+  - DIRECT,[]GEOIP,CN
+  - Proxies,[]MATCH
+#设置规则标志位
+
+#设置分组标志位
+custom_proxy_group:
+  - Proxies`select`[]UrlTest`[]HK`[]SG`[]JP`[]US`[]TW`.*
+  - Apple`select`[]DIRECT`[]Proxies
+  - MicroSoft`select`[]Proxies`[]DIRECT
+  - Telegram`select`[]Proxies`[]HK`[]SG
+  - Netflix`select`[]Proxies`[]HK`[]SG`[]JP`[]US`[]TW`NF|Netflix|NETFLIX|原生|解锁
+  - Netease`select`[]DIRECT`[]Proxies`NeteaseUnblock|Netease|netease|网易|云音乐
+  - HKMTMedia`select`[]DIRECT`[]Proxies`[]HK`[]TW
+  - UrlTest`url-test`.*`http://cp.cloudflare.com/generate_204`300
+  - HK`select`港|HK|(Hong Kong)
+  - SG`select`新|狮城|SG|Singapore
+  - TW`select`台|新北|彰化|TW|Taiwan
+  - JP`url-test`日((?!用).)+|东京|大阪|埼玉|JP|Japan`http://cp.cloudflare.com/generate_204`600
+  - US`url-test`美|洛杉矶|硅谷|达拉斯|费利蒙|凤凰城|芝加哥|圣何塞|西雅图|US|USA|America`http://cp.cloudflare.com/generate_204`600
+
+port: 0
+mixed_port: 7890
