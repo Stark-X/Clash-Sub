@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+  clash:
+    ports:
+      - '7890:7890'
+      - '9090:9090'
+    restart: always
+    image: dreamacro/clash:latest
+    volumes:
+      - /share/Container/clash/config.yml:/root/.config/clash/config.yaml
+  dashboard:
+    ports:
+      - '1234:80'
+    image: haishanh/yacd:latest
+    restart: always
+  convertor:
+    ports:
+      - "25500:25500"
+    restart: always
+    image: tindy2013/subconverter:latest
+    volumes:
+      - "./templates/all_base.tpl:/base/base/all_base.tpl:ro"
