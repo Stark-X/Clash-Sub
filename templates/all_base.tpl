@@ -1,5 +1,7 @@
 {% if request.target == "clash" or request.target == "clashr" %}
 
+# base on https://github.com/tindy2013/subconverter/blob/master/base/base/all_base.tpl
+# diff: use mixed-port instead
 port: {{ default(global.clash.http_port, "0") }}
 mixed-port: {{ default(global.clash.http_port, "7890") }}
 socks-port: {{ default(global.clash.socks_port, "7891") }}
