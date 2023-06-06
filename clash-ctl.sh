@@ -37,7 +37,7 @@ check () {
 
 update () {
     echo '[INFO] Updating Clash config'
-    wget -O ${root_path}/config.yml "http://localhost:25500/sub?target=clash&url=${SUB_URL}&config=https%3A%2F%2Fjihulab.com%2FStark-X%2Fclash-sub%2F-%2Fraw%2Fmaster%2FremoteConfigs%2Fdefault.ini&filename=config.yml&emoji=true&list=false&udp=true&tfo=false&scv=false&fdn=false&sort=true"
+    wget -O ${root_path}/config.yml "http://localhost:25500/sub?target=clash&url=${SUB_URL}&config=https%3A%2F%2Fraw.gitmirror.com%2FStark-X%2Fclash-sub%2Fmaster%2FremoteConfigs%2Fdefault.ini&filename=config.yml&emoji=true&list=false&udp=true&tfo=false&scv=false&fdn=false&sort=true"
 
     #sed -i '1imixed-port: 7890' ${root_path}/config.yml
     #sed -i 's/^port: 7890/port: 0/' ${root_path}/config.yml
