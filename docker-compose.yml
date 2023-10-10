@@ -20,3 +20,8 @@ services:
     image: tindy2013/subconverter:latest
     volumes:
       - "./templates/all_base.tpl:/base/base/all_base.tpl:ro"
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 172.20.20.0/24 # avoid IP config
